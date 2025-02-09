@@ -31,7 +31,9 @@ class UserLink(models.Model):
     def save(self, *args, **kwargs):
         if not self.link:
             unique_id = uuid.uuid4()
-            self.link = f"http://127.0.0.1:8000/site/{self.site.name.lower().replace(' ', '-')}/?id={unique_id}"
+            self.link = f"/site/{self.site.name.lower().replace(' ', '-')}/?id={unique_id}"  # Store only relative path
+            
+            # self.link = f"http://127.0.0.1:8000/site/{self.site.name.lower().replace(' ', '-')}/?id={unique_id}"
 
         if timezone.now() > self.end_date:
             self.is_active = False  # Auto-deactivate expired links
@@ -43,6 +45,18 @@ class UserLink(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.site.name} ({'Active' if self.is_active else 'Inactive'})"
+
+
+# newly added so it will hellp to get any link domail and pass it inside self.link
+    def get_full_link(self, request):
+        """ Dynamically gets the full URL including the current domain. """
+        current_domain = request.get_host()  # Detects the actual domain being used
+        scheme = 'https' if request.is_secure() else 'http'  # Check if HTTPS or HTTP
+        return f"{scheme}://{current_domain}{self.link}"
+
+
+
+
 
 
 
