@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure--xp(oz37ms-hhnu6m9_-3uq3_=%_-i^*=2wf!gu35f=^l6=bi6
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["127.0.0.1", "xshark.onrender.com", "xshark.online"]  # ✅ CORRECT
+ALLOWED_HOSTS = ["xshark.online","127.0.0.1", "xshark.onrender.com" ]  # ✅ CORRECT
 
 
 
