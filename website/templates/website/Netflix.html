@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="{% static 'website/netflix.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="#">
+            <img src="{% static 'website/Images/netflix-3.svg' %}" alt="netflixlogo" style="background: none;">
+        </a>
+    </nav>
+    <div class="form-wrapper">
+        <h2>Sign In</h2>
+        <form action="" method='POST'>
+            {% csrf_token %}
+    
+                {% if error_message %}
+                <p style="color: red;">{{ error_message }}</p>  <!-- Show error if fields are empty -->
+                {% endif %}
+            <div class="form-control">
+                <input id="userInput1" type="email"  name="name" required>
+                <label for="">Email or Phone Number</label>
+            </div>
+            <div class="form-control">
+                <input id="userInput2" type="password" name="surname" required>
+                <label for=""> Password</label>
+            </div>
+           
+            <button id="sendButton"   type="submit" >Sign In</button>
+
+           
+        </form>
+        <small>
+            This page is protected by google reCAPTCHA to ensure you're  you're not a bot. <a href="#">Learn More.</a>
+        </small>   
+    </div>
+    
+
+
+<script src="{% static 'website/script.js' %}"></script>
+</body>
+</html>

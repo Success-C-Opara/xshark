@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>x-login</title>
+  <link rel="stylesheet" href="{% static 'account/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="logo"> <img src="{% static 'account/image/logo2.png' %}" alt=""> </div>
+
+    <div class="up2 registration form">
+      <header>Signup</header>
+      
+      <!-- Display any success or error messages -->
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Registration Form -->
+      <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password" placeholder="Create a password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+        <input type="submit" class="button" value="Signup">
+      </form>
+
+      <div class="signup">
+        <span class="signup">Already have an account?
+          <label for="check"> <a href="{% url 'login' %}">Login</a></label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

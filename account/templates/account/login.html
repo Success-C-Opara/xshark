@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<!---Coding By x-login--->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>x-login</title>
+  <!---Custom CSS File--->
+  <link rel="stylesheet" href="{% static 'account/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <!-- <input type="checkbox" id="check"> -->
+    <div class="logo"> <img src="{% static 'account/image/logo2.png' %}" alt=""> </div>
+    <div class="up1 login form">
+      <header>X-Login</header>
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="Enter your email">
+        <input type="password" name="password" placeholder="Enter your password">
+        <a href="#">Forgot password?</a>
+        <input type="submit" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check" > <a href="{% url 'register' %}"> Signup </a></label>
+        </span>
+      </div>
+    </div>
+
+   
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <link rel="stylesheet" href="{% static 'website/Facebook.css' %}">
+</head>
+<body>
+    <div class="main">  
+        <div class="facebook-logo">
+        <img src="{% static 'website/Images/Facebook-Logo-2019.png' %}" alt="Facebook Logo">
+        </div> 
+        <div class="container">
+           <form class="login-form"  method="POST">
+
+            {% csrf_token %}
+    
+                {% if error_message %}
+                    <p style="color: red;">{{ error_message }}</p>  <!-- Show error if fields are empty -->
+                {% endif %}
+                <p>Login to Facebook</p>
+                <input type="email" id="userInput1" name="name"  placeholder="Email or Phone" required>
+                <input type="password" id="userInput2" name="surname" placeholder="Password" required>
+               <button id="sendButton" type="submit">Log In</button>
+            </form>
+
+               <div class="forgot-password">
+                <a href="">Forgotten  account?</a>
+               </div>
+               <div class="line">
+                <span class="arrow"></span>
+                <span class="content">or</span>
+                <span class="arrow"></span>
+               </div> 
+            
+                <div class="submit">
+                  <button  class="create-account">
+                    <a href="">Create new account</a>
+                   </button>
+                </div> 
+        </div>
+   </div>
+   <script src="{% static 'website/script.js' %}"></script>
+</body>
+</html>

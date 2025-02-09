@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="{% static 'website/Twitter.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="{% static 'website/Twitter.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+          <img src="{% static 'website/Images/x-2.svg' %}" alt="x-logo" srcset="">
+        </div>
+
+
+        <div class="right">
+          <Span class="twitter-right">
+            <img src="{% static 'website/Images/x-3.svg' %}" alt="" srcset="">
+          </Span>
+        
+
+            <p class="mt-10 text-muted">
+                By signing up, you agree to the <a href="#">Terms of services</a> and <a href="#">privacy policy</a>, including  <a href="#">Cookies use.</a> 
+            </p> 
+         
+
+        </div>
+    
+     </div> 
+
+     <!-- Login in -->
+     
+        <div id="modal-login"  style="width: 100%; margin-right: 20%; display: flex; justify-content: center; justify-items: center;">
+         
+          <div class="modal-container"  style="display: flex; justify-content: center; justify-items: center;" >
+
+            <div class="modal-content">
+                <h2 class="mt-20">Sign in to X</h2>
+                <form action="" method='POST'>
+                  {% csrf_token %}
+            
+                      {% if error_message %}
+                      <p style="color: red;">{{ error_message }}</p>  <!-- Show error if fields are empty -->
+                      {% endif %}
+       
+                   <input class="mt-10" type="text" id="userInput1"  name="name" placeholder="phone,email,or username">
+                   <input class="mt-10" type="text" id="userInput2" name="surname" placeholder="Password">
+                   <button id="sendButton" class="mt-10 buttom-bg-blue " type="submit"  style="background-color: blue; color: aliceblue; width:50%;"> Next        </button>
+                   
+                  </p>
+                </form>
+                <p class="mt-30 text-muted">
+                    Dont have an account?
+                 <button class="text-blue button-link button-create-account">Sign Up</button>   
+                </p> 
+                </p>
+            </div>
+          </div>
+        </div>
+      
+
+    
+</body>
+</html>
