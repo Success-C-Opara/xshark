@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ["www.xshark.online", "xshark.onrender.com", "127.0.0.1", ]  # â
 
 CSRF_TRUSTED_ORIGINS = [
     "https://xshark.online", 
+    "https://www.xshark.online",
     "https://xshark.onrender.com"
 ]
 
